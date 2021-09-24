@@ -1,29 +1,30 @@
-import logo from './logo.svg';
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom"
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Navigation from "./components/Navigation";
+import HomePage from "./components/HomePage";
 
 
 import './App.css';
-import Navbar from './components/Navbar'
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <Router>
-          <Navbar />
+          <Navigation />
+          <Switch>
+            <Route path="/" exact>
+              <HomePage />
+            </Route>
 
-          <h1>
-            Learn React
-          </h1>
+            <Route path="/cv" exact>
+              <h1>cv</h1>{/* About */}
+            </Route>
 
-          <Route path="/about" exact>
-            <h1>About</h1>{/* About */}
-          </Route>
-
-          <Route path="/home" exact>
-            <h1>Home</h1>{/* Home */}
-          </Route>
+            <Route path="/projects" exact>
+              <h1>projects</h1>{/* Home */}
+            </Route>
+          </Switch>
           
         </Router>
       </div>
