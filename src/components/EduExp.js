@@ -5,16 +5,16 @@ import Paper from "@material-ui/core/Paper"
 
 
 
-class Home extends Component {
+class EduExp extends Component {
   render() {
     return (
       <div>
-        <h2>Hi! I'm Vincent Wang</h2>
-        <br/>
-        <p>3rd year MEng Computing student at Imperial College London</p>
+        <h2>Education/Experience</h2>
       </div>
     )
   }
 }
 
-export default Home
+export default EduExp
+
+

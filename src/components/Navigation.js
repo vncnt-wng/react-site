@@ -16,8 +16,10 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
+import Grid from "@material-ui/core/Grid"
+import Container from "@material-ui/core/Container";
 
-import { ExpandMore, ExpandLess } from "@material-ui/icons";
+import { ExpandMore, ExpandLess, Menu, Home, Build, Description, School} from "@material-ui/icons";
 
 import { green } from '@material-ui/core/colors';
 
@@ -29,6 +31,17 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "auto",
   },
 
+  disableRipple: {
+    '&:hover': {
+      backgroundColor: 'transparent',
+    },
+  },
+
+  navbarIcon: {
+    paddingRight: 5,
+    paddingBottom: 3
+  },
+
   appBar: {
     position: "sticky",
     /*zIndex: 1400, TODO figure out how to have drawer draw below the appbar*/
@@ -36,20 +49,23 @@ const useStyles = makeStyles((theme) => ({
 
   drawer: {
 
+  },
+
+  navbarLink: {
   }
 }));
-
 
 const navbarTheme = createTheme({
   typography: {
     button: {
-      textTransform: "none"
+      textTransform: "none",
+      color: "#ffffff"
     }
   },
   overrides: {
     MuiButton: {
       label: {
-        color: "ffffff"
+        color: "#ffffff"
       }
     }
   }
@@ -60,17 +76,19 @@ export default function Navigation() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   return (
-    
+    <ThemeProvider theme={navbarTheme}>
       <AppBar className={classes.appBar} >
-        <Toolbar>
-          {isMobile ? (
-              <MobileNavbar />
-            ) : (
-              <FullNavbar />
-          )}
-        </Toolbar>
+        <Container>
+          <Toolbar>
+            {isMobile ? (
+                <MobileNavbar />
+              ) : (
+                <FullNavbar />
+            )}
+          </Toolbar>
+        </Container>
       </AppBar>
-
+    </ThemeProvider>
   )
 }
 
@@ -79,30 +97,45 @@ function FullNavbar() {
   const theme = useTheme();
   return (
     <>
-      <Typography variant="h6" color="inherit">
-        Vincent Wang
-      </Typography>
-
-      <div className={classes.toolbarButtons}>
-        <Button variant="text" component={Link} to="/">
-          <Typography variant="h6" style={{ textTransform: 'none' }}>
-            Home
-          </Typography>
-        </Button>
-
-        <Button variant="text" component={Link} to="/projects">
-          <Typography variant="h6" style={{ textTransform: 'none' }}>
-            Projects
-          </Typography>
-        </Button>
+     
+      <Grid container className={classes.toolbarButtons}>
         
-        <Button variant="text" component={Link} to="/cv">
-          <Typography variant="h6">
-            CV
-          </Typography>
-        </Button>
+        <Grid item sm={3}>
+          <Button variant="text" component={Link} to="/">
+            <Home className={classes.navbarIcon}/>
+            <Typography variant="h6" component="h6">
+              Home
+            </Typography>
+          </Button>
+        </Grid>
 
-      </div>
+        <Grid item sm={3}>
+          <Button variant="text" component={Link} to="/projects">
+            <Build className={classes.navbarIcon}/>
+            <Typography variant="h6" component="h6">
+              Projects
+            </Typography>
+          </Button>
+        </Grid>
+
+        <Grid item sm={3}>
+          <Button variant="text" component={Link} to="/eduexp">
+            <School className={classes.navbarIcon}/>
+            <Typography variant="h6" component="h6">
+              Education/Exp
+            </Typography>
+          </Button>
+        </Grid>
+
+        <Grid item sm={3}>
+          <Button variant="text" component={Link} to="/cv">
+            <Description className={classes.navbarIcon}/>
+            <Typography variant="h6" component="h6">
+              CV
+            </Typography>
+          </Button>
+        </Grid>
+      </Grid>
     </>
   )
 }
@@ -125,18 +158,15 @@ function MobileNavbar() {
         onClick={() => setOpen(!open)}
       >
 
-      {open ? (
-          <ExpandLess />
-        ) : (
-          <ExpandMore />
-        )
-      }
+        <Menu />
         
       </IconButton>
+
+      {/*
       <Typography variant="h6" color="inherit">
         Vincent Wang
       </Typography>
-
+      */}
 
       <Drawer 
         anchor="top" 
