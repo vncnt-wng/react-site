@@ -1,7 +1,11 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid"
 import Card from "@material-ui/core/Card"
+import CardMedia from "@material-ui/core/CardMedia"
+import CardContent from "@material-ui/core/CardContent"
+import CardActionArea from "@material-ui/core/CardActionArea"
+import Divider from "@material-ui/core/Divider"
 import Typography from "@material-ui/core/Typography"
 
 
@@ -20,12 +24,25 @@ const ProjectCards = ({projects}) => {
 
 
 const ProjectCard = ({project}) => {
-  const {title} = project.fields  
+  const {title, dateRange, shortDescription, photo} = project.fields  
+  const image_url = photo.fields.file.url
   const id = project.sys.id
+  console.log(image_url)
+  console.log("https:" + image_url)
+
+
   return (
     <Grid item xs={12} lg={6}>
       <Card>
-          <Typography>{title}: {id}</Typography>
+        <CardActionArea component={Link} to={"/projects/" + id}>
+          <CardMedia square style={{ height: "50%"}} component="img" image={image_url}/>
+          <CardContent align="left">
+            <Typography variant="h6" style={{ fontSize: "1.4rem", fontWeight: "500"}}>{title}</Typography>
+            <hr style={{height:"1px", borderWidth:"0", color:"Gainsboro", backgroundColor:"Gainsboro"}}/>
+            <Typography variant="h6" style={{ paddingBottom:"1%", fontSize:"1.2rem"}}>{dateRange}</Typography>
+            <Typography>{shortDescription}</Typography>
+          </CardContent>
+        </CardActionArea>
       </Card>
     </Grid>
   )

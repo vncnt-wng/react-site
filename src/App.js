@@ -32,6 +32,7 @@ class App extends Component {
               <Route path="/projects" exact>
                 <Projects />
               </Route>
+              
             </Switch>
           </Container>
         </Router>
