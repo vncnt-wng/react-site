@@ -28,7 +28,7 @@ import { useMediaQuery } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   toolbarButtons: {
-    marginLeft: "auto",
+    color: "black"
   },
 
   disableRipple: {
@@ -44,6 +44,7 @@ const useStyles = makeStyles((theme) => ({
 
   appBar: {
     position: "sticky",
+    background: "#1A3947"
     /*zIndex: 1400, TODO figure out how to have drawer draw below the appbar*/
   },
 
@@ -98,12 +99,12 @@ function FullNavbar() {
   return (
     <>
      
-      <Grid container className={classes.toolbarButtons}>
+      <Grid container className={classes.toolbarButtons} direction="row">
         
         <Grid item sm={3}>
           <Button variant="text" component={Link} to="/">
-            <Home className={classes.navbarIcon}/>
-            <Typography variant="h6" component="h6">
+            {/* <Home className={classes.navbarIcon}/> */}
+            <Typography variant="h5" component="h6">
               Home
             </Typography>
           </Button>
@@ -111,8 +112,8 @@ function FullNavbar() {
 
         <Grid item sm={3}>
           <Button variant="text" component={Link} to="/projects">
-            <Build className={classes.navbarIcon}/>
-            <Typography variant="h6" component="h6">
+            {/* <Build className={classes.navbarIcon}/> */}
+            <Typography variant="h5" component="h6">
               Projects
             </Typography>
           </Button>
@@ -120,8 +121,8 @@ function FullNavbar() {
 
         <Grid item sm={3}>
           <Button variant="text" component={Link} to="/eduexp">
-            <School className={classes.navbarIcon}/>
-            <Typography variant="h6" component="h6">
+            {/* <School className={classes.navbarIcon}/> */}
+            <Typography variant="h5" component="h6">
               Education/Exp
             </Typography>
           </Button>
@@ -129,8 +130,8 @@ function FullNavbar() {
 
         <Grid item sm={3}>
           <Button variant="text" component={Link} to="/cv">
-            <Description className={classes.navbarIcon}/>
-            <Typography variant="h6" component="h6">
+            {/* <Description className={classes.navbarIcon}/> */}
+            <Typography variant="h5" component="h6">
               CV
             </Typography>
           </Button>

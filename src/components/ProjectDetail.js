@@ -75,7 +75,9 @@ class ProjectDetail extends Component {
             <Typography>{this.state.shortDescription}</Typography>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <Image src={"http:" + this.state.photoUrl} imageStyle={{height:"50%"}}/>
+            <Card>
+              <CardMedia square style={{ height: "50%"}} component="img" image={this.state.photoUrl}/>
+            </Card>
           </Grid>
           <Grid item xs={12}>
             <hr style={{height:"1px", borderWidth:"0", color:"Gainsboro", backgroundColor:"Gainsboro"}}/>

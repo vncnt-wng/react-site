@@ -15,7 +15,7 @@ const ProjectCards = ({projects}) => {
   });
   console.log(projects)
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={3}>
       {projects.map((project, index) => <ProjectCard key={index} project={project}/>)}
     </Grid>
   )
@@ -29,12 +29,12 @@ const ProjectCard = ({project}) => {
 
   return (
     <Grid item xs={12} md={6}>
-      <Card>
+      <Card border="warning">
         <CardActionArea component={Link} to={"project/" + id}>
           <CardMedia square style={{ height: "50%"}} component="img" image={image_url}/>
-          <CardContent align="left">
+          <CardContent align="left" style={{backgroundColor: "#D5E3E3"}}>
             <Typography variant="h6" style={{ fontSize: "1.4rem", fontWeight: "500"}}>{title}</Typography>
-            <hr style={{height:"1px", borderWidth:"0", color:"Gainsboro", backgroundColor:"Gainsboro"}}/>
+            <hr style={{height:"1px", borderWidth:"0", color:"grey", backgroundColor:"grey"}}/>
             <Typography variant="h6" style={{ paddingBottom:"1%", fontSize:"1.2rem"}}>{dateRange}</Typography>
             <Typography>{shortDescription}</Typography>
           </CardContent>

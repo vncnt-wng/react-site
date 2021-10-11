@@ -10,6 +10,7 @@ import EduExp from "./components/EduExp";
 import './App.css';
 import ProjectDetail from "./components/ProjectDetail";
 
+
 class App extends Component {
   render() { 
     return (

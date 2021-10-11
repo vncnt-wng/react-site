@@ -11,7 +11,7 @@ class Projects extends Component {
   state = {
     projects: []
   }
-
+  
   // Make the contenful api call
   componentDidMount() {
     client.getEntries({
