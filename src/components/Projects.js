@@ -11,7 +11,7 @@ class Projects extends Component {
   state = {
     projects: []
   }
-  
+
   // Make the contenful api call
   componentDidMount() {
     client.getEntries({
@@ -29,9 +29,8 @@ class Projects extends Component {
   render() {
     return (
       <div align="left">
-
-          <Typography variant="h5">Here are some projects I've done...</Typography>
-          <Typography variant="h6">This site was created using React (Material UI) and Contentful and is hosted on Netlify</Typography>
+          <Typography variant="h2">Here are some projects I've done...</Typography>
+          <Typography variant="h5">This site was created using React + Contentful and is hosted on Netlify</Typography>
           <ProjectCards projects={this.state.projects}/>
       </div>
     )

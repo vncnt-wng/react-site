@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { makeStyles, useTheme, createTheme, ThemeProvider } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid"
 import Card from "@material-ui/core/Card"
 import CardMedia from "@material-ui/core/CardMedia"
@@ -22,17 +23,24 @@ const ProjectCards = ({projects}) => {
 }
 
 
+const useStyles = makeStyles({
+  card: {
+   borderRadius: 10,
+  }
+ });
+
+
 const ProjectCard = ({project}) => {
   const {title, dateRange, shortDescription, photo} = project.fields  
   const image_url = photo.fields.file.url
   const id = project.sys.id
-
+  const classes = useStyles();
   return (
     <Grid item xs={12} md={6}>
-      <Card border="warning">
+      <Card border="warning" className={classes.card} elevation={5}>
         <CardActionArea component={Link} to={"project/" + id}>
-          <CardMedia square style={{ height: "50%"}} component="img" image={image_url}/>
-          <CardContent align="left" style={{backgroundColor: "#D5E3E3"}}>
+          <CardMedia style={{ height: "50%", objectFit: "cover" }} component="img" image={image_url}/>
+          <CardContent align="left" style={{backgroundColor: "darkSlateGray", color:"white"}}>
             <Typography variant="h6" style={{ fontSize: "1.4rem", fontWeight: "500"}}>{title}</Typography>
             <hr style={{height:"1px", borderWidth:"0", color:"grey", backgroundColor:"grey"}}/>
             <Typography variant="h6" style={{ paddingBottom:"1%", fontSize:"1.2rem"}}>{dateRange}</Typography>

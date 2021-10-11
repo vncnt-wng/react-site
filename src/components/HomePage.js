@@ -14,8 +14,10 @@ class Home extends Component {
           <Grid item xs={12}>
             <Typography variant="h2" color="initial">Hi, I'm Vincent!</Typography>
             <Typography variant="h6" color="initial">3rd year MEng Computing student at Imperial College London</Typography>
+            <Typography variant="h6" color="initial">Take a look at my CV, some of my past projects and my experinece</Typography>
           </Grid>
           <Grid item xs={12}>
+            <Typography variant="h4" color="initial">Contact me:</Typography>
             <Typography variant="h4" color="initial">Find me on:</Typography>
           </Grid>
         </Grid>

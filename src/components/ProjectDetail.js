@@ -75,7 +75,7 @@ class ProjectDetail extends Component {
             <Typography>{this.state.shortDescription}</Typography>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <Card>
+            <Card style={{borderRadius: 10}}>
               <CardMedia square style={{ height: "50%"}} component="img" image={this.state.photoUrl}/>
             </Card>
           </Grid>
