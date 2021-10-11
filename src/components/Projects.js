@@ -28,8 +28,10 @@ class Projects extends Component {
 
   render() {
     return (
-      <div>
-          <h2>Here are some projects I've done...</h2>
+      <div align="left">
+
+          <Typography variant="h5">Here are some projects I've done...</Typography>
+          <Typography variant="h6">This site was created using React (Material UI) and Contentful and is hosted on Netlify</Typography>
           <ProjectCards projects={this.state.projects}/>
       </div>
     )

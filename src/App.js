@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Container } from "@material-ui/core";
 import Navigation from "./components/Navigation";
 import HomePage from "./components/HomePage";
@@ -8,12 +8,13 @@ import EduExp from "./components/EduExp";
 
 
 import './App.css';
+import ProjectDetail from "./components/ProjectDetail";
 
 class App extends Component {
   render() { 
     return (
       <div className="App">
-        <Router>
+        <BrowserRouter>
           <Navigation />
           <Container>
             <Switch>
@@ -29,13 +30,15 @@ class App extends Component {
                 <h1>cv</h1>{/* About */}
               </Route>
 
+              <Route path="/project/:id" component={ProjectDetail} />
+
               <Route path="/projects" exact>
                 <Projects />
               </Route>
               
             </Switch>
           </Container>
-        </Router>
+        </BrowserRouter>
       </div>
     );
   }
