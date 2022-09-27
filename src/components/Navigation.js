@@ -1,6 +1,3 @@
-import { Component } from "react";
-import styled from "styled-components";
-
 import { Link } from 'react-router-dom';
 
 import React, { useState } from "react";
@@ -20,8 +17,6 @@ import Grid from "@material-ui/core/Grid"
 import Container from "@material-ui/core/Container";
 
 import { ExpandMore, ExpandLess, Menu, Home, Build, Description, School} from "@material-ui/icons";
-
-import { green } from '@material-ui/core/colors';
 
 import { useMediaQuery } from "@material-ui/core";
 
